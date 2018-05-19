@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.speech.RecognitionListener;
@@ -36,12 +37,14 @@ public class MainActivity extends AppCompatActivity {
     private final int REQ_CODE_SPEECH_INPUT = 100;
     private static final int PERMISSION_REQUEST_CODE = 200;
     ImageButton btnSpeak;
-    TextView txtSpeechInput, outputText;
+    TextView txtSpeechInput, outputText, txtmic, txtuser, txtresponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/MyUnderwood.ttf");
+
         if (Build.VERSION.SDK_INT >= 23) {
             if (((checkSelfPermission(Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED) &&(checkSelfPermission(Manifest.permission.RECORD_AUDIO)== PackageManager.PERMISSION_GRANTED))){
                 return;
@@ -61,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
         btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
         txtSpeechInput = (TextView) findViewById(R.id.txtSpeechInput);
         outputText = (TextView) findViewById(R.id.outputTex);
+        txtmic = (TextView) findViewById(R.id.txtmic);
+        txtuser = (TextView) findViewById(R.id.txtuser);
+        txtresponse = (TextView) findViewById(R.id.txtresponse);
+        txtSpeechInput.setTypeface(custom_font);
+        outputText.setTypeface(custom_font);
+        txtuser.setTypeface(custom_font);
+        txtmic.setTypeface(custom_font);
+        txtresponse.setTypeface(custom_font);
         btnSpeak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
         } catch (ActivityNotFoundException a) {
             Toast.makeText(getApplicationContext(),
-                    "orry! Your device doesn\\'t support speech input",
+                    "Sorry! Your device doesn\\'t support speech input",
                     Toast.LENGTH_SHORT).show();
         }
     }
@@ -177,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
             conn.setDoOutput(true);
             conn.setDoInput(true);
 
-            conn.setRequestProperty("Authorization", "Bearer 9b88056b72544b769f9dac344da68cc5");
+            conn.setRequestProperty("Authorization", "Bearer <YOUR-ACCESS-TOKEN>");
             conn.setRequestProperty("Content-Type", "application/json");
 
             //Create JSONObject here

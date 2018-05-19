@@ -25,6 +25,7 @@
             android:src="@drawable/ico_mic" />
 
         <TextView
+            android:id="@+id/txtmic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -41,12 +42,15 @@
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
         >
+
         <TextView
+            android:id="@+id/txtuser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User Say"
-            android:textColor="@color/white"
-            />
+            android:gravity="center_horizontal"
+            android:text="User:"
+            android:textSize="26dp"
+            android:textColor="@color/white" />
         <TextView
             android:id="@+id/txtSpeechInput"
             android:layout_width="wrap_content"
@@ -55,15 +59,17 @@
             android:layout_centerHorizontal="true"
             android:padding="20dp"
             android:textColor="@color/white"
-            android:textSize="26dp"
+            android:textSize="20dp"
             android:textStyle="normal" />
 
         <TextView
+            android:id="@+id/txtresponse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reponse"
-            android:textColor="@color/white"
-            />
+            android:gravity="center_horizontal"
+            android:text="Bot:"
+            android:textSize="26dp"
+            android:textColor="@color/white" />
         <TextView
             android:id="@+id/outputTex"
             android:layout_width="wrap_content"
@@ -72,7 +78,7 @@
             android:layout_centerHorizontal="true"
             android:padding="20dp"
             android:textColor="@color/white"
-            android:textSize="26dp"
+            android:textSize="20dp"
             android:textStyle="normal" />
     </LinearLayout>
 
