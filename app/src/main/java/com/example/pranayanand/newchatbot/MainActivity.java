@@ -80,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+//    public void heloWorld()
+//    {
+//        Toast.makeText(this, "Hello world", Toast.LENGTH_SHORT).show();
+//    }
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
